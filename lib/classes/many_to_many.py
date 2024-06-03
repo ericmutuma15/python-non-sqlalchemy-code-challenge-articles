@@ -84,6 +84,7 @@ class Magazine:
 
     def contributing_authors(self):
        contributors = [article.author for article in Article.article_container if article.magazine == self]
+       
        for element in contributors:
             if contributors.count(element) >= 2:
                 return [element for element in contributors]
