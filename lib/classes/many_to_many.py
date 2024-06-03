@@ -26,7 +26,7 @@ class Author:
     def articles(self):
         return [article for article in Article.article_container if article.author == self]
     def magazines(self):
-        return list([article.magazine for article in Article.article_container if article.author == self])
+        return list({article.magazine for article in Article.article_container if article.author == self})
 
     def add_article(self, magazine, title):
         return Article(self, magazine, title)
