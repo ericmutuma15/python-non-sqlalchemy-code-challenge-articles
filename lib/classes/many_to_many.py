@@ -19,6 +19,7 @@ class Author:
         if not isinstance(name, str):
             raise Exception('The name should be of type string')
         if (len(name) <= 0):
+            
             raise Exception('The name cannot be empty')
         self.name = name
 
@@ -76,7 +77,7 @@ class Magazine:
     def article_titles(self):
         articles = self.articles()
         if (articles):
-           return [article.title for article in articles]
+           return list({article.title for article in articles})
         else:
             None
 
