@@ -49,20 +49,21 @@ class Magazine:
         return self._name
     @name.setter
     def name(self, set_name):
-        if isinstance(set_name, str) and 2 <= len(set_name) <= 16:
-            self._name = set_name
-        else:
-            raise ValueError("Magazine name must be of type string and between 2 and 16 characters")
+        if not isinstance(set_name, str) :
+            raise ValueError ('Magazine name must be of type string')
+        if not (2 <= len(set_name) <= 16):
+            raise ValueError("Magazine name must be between 2 and 16 characters")
+        self._name = set_name
         
     @property
     def category(self):
         return self._category
     @category.setter 
     def category(self, set_category):
-        if (len(set_category) == 0):
+        if not len(set_category) > 0:
             raise ValueError("Category cannot be empty")
         if not isinstance(set_category, str):
-            raise Exception("Category must be of type string") 
+            raise ValueError("Category must be of type string") 
         else:
             self._category = set_category
         
